@@ -1,0 +1,170 @@
+[
+	{
+		"category": "computer science",
+		"q&a": [
+			["how many bits are in a byte ?", ["8", "10", "1", "4"]],
+			[
+				"which one of these is a programming language ?",
+				["HTML", "HTTP", "FTP", "HPML"]
+			],
+			[
+				"In which decade was the Internet first implemented ?",
+				[1960, 1940, 1950, 1970]
+			],
+			[
+				"ISP stands for:",
+				[
+					"Internet Service Provider",
+					"Internet Security Protocol",
+					"Integrated Service Provider",
+					"Internet Survey Period"
+				]
+			],
+			[
+				"Internet Explorer is a:",
+				[
+					"Web Browser",
+					"Any person browsing the net",
+					"News Reader",
+					"Graphing Package"
+				]
+			],
+			[
+				"HTTP Stands For:",
+				[
+					"Hyper Text Transfer Protocol",
+					"Hyperspace Techniques & Tech Progress",
+					"Hyperspace Terms and Tech Protocol",
+					"HTML Transfer Technology Process"
+				]
+			],
+			[
+				"'.TMP' extension refers usually to what kind of file ?",
+				[
+					"Temporary file",
+					"Audio file",
+					"Image file",
+					"Compressed Archive file"
+				]
+			],
+			[
+				"'.JPG' extension refers usually to what kind of file ?",
+				[
+					"Image file",
+					"MS Encarta document",
+					"Animation/movie file",
+					"System file"
+				]
+			],
+			[
+				"'DTP' computer abbreviation usually means ?",
+				[
+					"Desk-Top Publishing",
+					"Digital Transmission Protocol",
+					"Data Type Programming",
+					"Document Type Processing"
+				]
+			],
+			[
+				"'CD' computer abbreviation usually means?",
+				[
+					"Compact Disc",
+					"Command Description",
+					"Change Data",
+					"Copy Density"
+				]
+			]
+		]
+	},
+	{
+		"category": "science",
+		"q&a": [
+			[
+				"What does DNA stand for ?",
+				[
+					"Deoxyribonucleic acid",
+					"Dangerous acid",
+					"Dopamin acid",
+					"Daily nap affection"
+				]
+			],
+			[
+				"How many bones are in the human body ?",
+				["206", "102", "326", "83"]
+			],
+			[
+				"The concept of gravity was discovered by which famous physicist ?",
+				[
+					"Isaac Newton",
+					"Albert Einstein",
+					"Marie Curie",
+					"Galileo Galilei"
+				]
+			],
+			[
+				"What is the hardest natural substance on Earth ?",
+				["Diamond", "Titanium", "Tungsten", "Steel"]
+			],
+			[
+				"Which is the main gas that makes up the Earth's atmosphere ?",
+				["Nitrogen", "oxygen", "argon", "Ozone"]
+			],
+			[
+				"Humans and chimpanzees share roughly how much DNA ?",
+				["98%", "4%", "26%", "73%"]
+			],
+			[
+				"At what temperature are Celsius and Fahrenheit equal ?",
+				["-40", "-10", "0", "37"]
+			],
+			[
+				"What is the biggest planet in our solar system ?",
+				["Jupiter", "Mars", "Earth", "Saturn"]
+			],
+			[
+				"How many vertebrae does the average human possess ?",
+				["33", "8", "15", "41"]
+			],
+			[
+				"What was the name of the first man-made satellite launched by the Soviet Union in 1957 ?",
+				["Sputnik 1", "Apollo 1", "Tatyana", "Apollo 15"]
+			]
+		]
+	},
+	{
+		"category": "mathematics",
+		"q&a": [
+			[
+				"The equation of the straight line which is perpendicular to y=x and passes through (3, 2) is:",
+				["x + y = 5", "x - y = 5", "x + y = 1", "x - y = 1"]
+			],
+			[
+				"Solve for x and y: 27x + 31y = 85; 31x + 27y = 89",
+				[
+					"x = 2, y = 1",
+					"x = 1, y = 2",
+					"x = -2, y = -1",
+					"x = -1, y =- 2"
+				]
+			],
+			["what is 9 + 10 ?", ["19", "21", "910", "109"]],
+			[
+				"Find the reciprocal of 0.11",
+				["100/11", "1/10", "11/100", "1.1"]
+			],
+			[
+				"Chris has 3 pencils. Pam has four times as many pencils as Chris. How many pencils does Pam have ?",
+				["12 pencils", "11 pencils", "9 pencils", "4 pencils"]
+			],
+			["Find 83% of $179", ["$148.57", "$30.34", "$83.79", "$143.20"]],
+			["4^4 = ?", ["256", "16", "64", "356"]],
+			["How many years in a decade", ["10", "15", "100", "5"]],
+			["which number is prime ?", ["101", "102", "49", "33"]],
+			[
+				"What is the magnitude of (-3, 16)",
+				["16.28", "17.73", "14.33", "12.7"]
+			],
+			["Which fraction is greater ?", ["3/6", "1/3", "-4/5", "1/6"]]
+		]
+	}
+]

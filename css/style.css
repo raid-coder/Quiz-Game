@@ -1,0 +1,239 @@
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+.quiz .start-btn {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	translate: -50% -50%;
+	background-color: rgb(62, 223, 62);
+	color: white;
+	font-weight: bold;
+	font-size: 24px;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.quiz .start-btn.off {
+	display: none;
+}
+.quiz .start-btn:hover {
+	background-color: rgb(59, 166, 59);
+}
+
+.quiz-container {
+	max-width: 1000px;
+	border: 3px solid black;
+	border-radius: 10px;
+	margin: 30px auto 0;
+}
+.quiz-header {
+	padding: 20px;
+	border-bottom: 3px solid black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.quiz-header .category {
+	font-size: 18px;
+}
+.quiz-header .filter {
+	width: 40px;
+	height: 40px;
+	background-color: #eee;
+	border-radius: 6px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.quiz-header .filter:hover {
+	background-color: #ccc;
+}
+.quiz-header .filter .filter-menu {
+	position: absolute;
+	right: 0;
+	top: 100%;
+	width: max-content;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 10px 0 10px 10px;
+	display: none;
+}
+.quiz-header .filter .filter-menu.active {
+	display: block;
+}
+.quiz-header .filter .filter-menu .option {
+	display: block;
+	padding: 5px 10px;
+}
+.quiz-header .filter .filter-menu .option:not(:last-child) {
+	border-bottom: 2px solid black;
+}
+.quiz-header .category #category {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.quiz {
+	padding: 40px 20px;
+	border-bottom: 3px solid black;
+	min-height: 400px;
+}
+.quiz .question {
+	padding: 0 20px;
+	margin: 0 30px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.quiz .choices {
+	list-style-type: upper-alpha;
+	list-style-position: inside;
+	font-size: 25px;
+	margin: 40px 50px 70px;
+	padding: 0;
+}
+.quiz .choices li {
+	padding: 10px 20px;
+	background-color: #eee;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+.quiz .choices li:hover {
+	background-color: rgb(102, 196, 102);
+}
+.quiz .choices li.chosen {
+	background-color: rgb(32, 190, 32);
+}
+.quiz .choices li::marker {
+	font-size: 20px;
+	margin-right: 20px;
+}
+.quiz .choices li:not(:last-child) {
+	margin-bottom: 20px;
+}
+.quiz .progress {
+	list-style: none;
+	max-width: 400px;
+	margin: auto;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+.quiz .progress::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: black;
+	left: 0;
+	top: 50%;
+	translate: 0 -1px;
+}
+.quiz .progress li {
+	width: 8px;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	border: 1px solid black;
+	background-color: white;
+	position: relative;
+
+	&.passed {
+		background-color: aquamarine;
+	}
+
+	&.current::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: aquamarine;
+		opacity: 0.9;
+		border-radius: 50%;
+		animation: glow 1s infinite linear;
+		z-index: -1;
+	}
+}
+.quiz .result.off {
+	display: none;
+}
+.quiz .result .score {
+	font-size: 30px;
+	text-align: center;
+}
+.quiz .result .notes {
+}
+.quiz .result .notes .wrong-answer {
+	text-align: center;
+}
+.quiz .result .notes .wrong-answer .wrong-question {
+	font-weight: bold;
+	font-size: 20px;
+	margin: 10px 0;
+}
+.quiz .result .notes .wrong-answer .answers {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 30px;
+}
+.quiz .result .notes .wrong-answer .answers .wrong,
+.quiz .result .notes .wrong-answer .answers .right {
+	flex: 1;
+	background-color: #eee;
+	border-radius: 10px;
+	padding: 10px 15px;
+	border: 2px solid;
+}
+.quiz .result .notes .wrong-answer .answers .wrong {
+	border-color: red;
+	color: red;
+}
+.quiz .result .notes .wrong-answer .answers .right {
+	border-color: green;
+	color: green;
+}
+
+.quiz-control {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.quiz-container .time {
+	font-size: 20px;
+	font-weight: bold;
+}
+.quiz-container .next {
+	border: 1px solid #333;
+	background-color: #eee;
+	border-radius: 6px;
+	padding: 8px 13px;
+	font-size: 18px;
+	transition: background-color 0.3s, color 0.3s;
+}
+.quiz-container .next.active {
+	background-color: rgb(41, 213, 41);
+	color: white;
+	cursor: pointer;
+}
+.quiz-container .next.active:hover {
+	background-color: rgb(49, 161, 49);
+}
+
+.quiz.hide :where(.progress, .question, .choices) {
+	display: none;
+}
+
+/* Animations */
+
+@keyframes glow {
+	to {
+		scale: 5;
+		opacity: 0;
+	}
+}

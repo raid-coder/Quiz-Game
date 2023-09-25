@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/all.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="quiz-container">
+			<div class="quiz-header">
+				<div class="category">
+					Category: <span id="category">???</span>
+				</div>
+				<div class="filter">
+					<i class="fas fa-filter"></i>
+					<div class="filter-menu">
+						<label class="option" for="op1">
+							<input
+								type="checkbox"
+								name="filter"
+								id="op1"
+								checked
+							/>
+							computer science
+						</label>
+						<label class="option" for="op2">
+							<input
+								type="checkbox"
+								name="filter"
+								id="op2"
+								checked
+							/>
+							science
+						</label>
+						<label class="option" for="op3">
+							<input
+								type="checkbox"
+								name="filter"
+								id="op3"
+								checked
+							/>
+							mathematics
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="quiz hide">
+				<button class="start-btn">Start</button>
+				<div class="question">how many bits are in a byte ?</div>
+				<ol class="choices">
+					<li>10</li>
+					<li>1</li>
+					<li>8</li>
+					<li>4</li>
+				</ol>
+				<ul class="progress">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="result off">
+					<div class="score">
+						<div>Your Score Is :</div>
+						<span id="score"></span>/10
+					</div>
+					<div class="notes" id="notes"></div>
+				</div>
+			</div>
+			<div class="quiz-control">
+				<div class="time">
+					<i class="fa-regular fa-clock"></i>
+					<span class="number">??</span>
+				</div>
+				<button class="next">Next ></button>
+			</div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>
