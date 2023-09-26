@@ -3,11 +3,7 @@ let startBtn = document.querySelector(".start-btn");
 let quizHolder = document.querySelector(".quiz");
 startBtn.addEventListener("click", function () {
 	startBtn.classList.add("off");
-	quizHolder.classList.remove("hide");
-	stopFilter();
-	getQuestions();
-	loadQuestion();
-	resetTimer();
+	initializeGame();
 });
 // Start
 
@@ -95,10 +91,6 @@ function getCategories() {
 
 	return categories;
 }
-function stopFilter() {
-	filter.removeEventListener("click", toggleFilter);
-	filterMenu.classList.remove("active");
-}
 // Filter
 
 // choices
@@ -164,20 +156,19 @@ function activeNext(isActive) {
 	}
 }
 
-next.addEventListener("click", function () {
-	if (!this.classList.contains("active")) return;
-
-	answers.push(clearChoices());
-	nextHundler();
-});
+next.addEventListener("click", nextHundler);
 
 function nextHundler() {
+	if (!next.classList.contains("active")) return;
+
+	answers.push(clearChoices());
+
 	if (curQuestion === 9) {
 		submitAnswers();
 	} else {
 		updateQuestion();
+		activeNext(false);
 	}
-	activeNext(false);
 }
 // Next
 
@@ -192,8 +183,12 @@ function submitAnswers() {
 	clearInterval(timerId);
 	timer.textContent = "??";
 
+	// activate filter
+	filter.addEventListener("click", toggleFilter);
+
+	categoryHolder.textContent = "???";
+
 	let score = 0;
-	let notes = [];
 
 	for (let i = 0; i < 10; i++) {
 		if (
@@ -209,6 +204,10 @@ function submitAnswers() {
 	scoreHolder.textContent = score;
 	resultHolder.classList.remove("off");
 	quizHolder.classList.add("hide");
+
+	next.textContent = "Reset";
+	next.removeEventListener("click", nextHundler);
+	next.addEventListener("click", resetHundler);
 }
 function addNote(i, answer) {
 	let choices = ["A.", "B.", "C.", "D."];
@@ -264,3 +263,27 @@ function resetTimer() {
 	}, 1000);
 }
 // Time
+
+// Reset
+function initializeGame() {
+	curQuestion = 0;
+	initializeProgress();
+
+	quizHolder.classList.remove("hide");
+
+	// stop Filter
+	filter.removeEventListener("click", toggleFilter);
+	filterMenu.classList.remove("active");
+
+	getQuestions();
+	loadQuestion();
+	resetTimer();
+	next.textContent = "Next >";
+	resultHolder.classList.add("off");
+}
+function resetHundler() {
+	next.addEventListener("click", nextHundler);
+	next.removeEventListener("click", resetHundler);
+	initializeGame();
+}
+// Reset
