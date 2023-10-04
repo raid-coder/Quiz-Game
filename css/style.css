@@ -101,18 +101,18 @@ body {
 	text-transform: capitalize;
 }
 .quiz .choices {
-	list-style-type: upper-alpha;
-	list-style-position: inside;
+	list-style: none;
 	font-size: 25px;
 	margin: 40px 50px 70px;
 	padding: 0;
 }
 .quiz .choices li {
-	padding: 10px 20px;
+	padding: 10px 20px 10px 60px;
 	background-color: #eee;
 	border-radius: 6px;
 	cursor: pointer;
 	transition: background-color 0.3s;
+	position: relative;
 }
 .quiz .choices li:hover {
 	background-color: rgb(102, 196, 102);
@@ -126,6 +126,17 @@ body {
 }
 .quiz .choices li:not(:last-child) {
 	margin-bottom: 20px;
+}
+.quiz .choices li span:first-child {
+	display: block;
+	position: absolute;
+	border-right: 2px solid #555;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	padding: 0 15px;
 }
 .quiz .progress {
 	list-style: none;

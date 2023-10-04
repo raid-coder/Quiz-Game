@@ -15,7 +15,7 @@ let shuffeledQuestions = [];
 
 let categoryHolder = document.getElementById("category");
 let questionHolder = document.querySelector(".question");
-let choicesHolders = document.querySelectorAll(".choices li");
+let choicesHolders = document.querySelectorAll(".choices li .choice");
 
 /* get Questions from "api" */
 fetch("./quiz questions.json")
@@ -128,12 +128,13 @@ function getChosenCategories() {
 // Filter
 
 // choices
-let choices = document.querySelector(".choices");
+let choicesHolder = document.querySelector(".choices");
+let choices = document.querySelectorAll(".choices li");
 
-choices.addEventListener("click", function (e) {
-	let choice = e.target;
+choicesHolder.addEventListener("click", function (e) {
+	let choice = e.target.closest("li");
 
-	if (e.target.tagName !== "LI") return;
+	if (choice === null) return;
 
 	if (choice.classList.contains("chosen")) {
 		choice.classList.remove("chosen");
@@ -141,7 +142,7 @@ choices.addEventListener("click", function (e) {
 		return;
 	}
 
-	for (const c of Array.from(choices.children)) {
+	for (const c of Array.from(choices)) {
 		c.classList.remove("chosen");
 	}
 
@@ -149,15 +150,13 @@ choices.addEventListener("click", function (e) {
 
 	activeNext(true);
 });
-
 function clearChoices() {
 	for (let i = 0; i < 4; i++) {
-		if (choicesHolders[i].classList.contains("chosen")) {
-			choicesHolders[i].classList.remove("chosen");
+		if (choices[i].classList.contains("chosen")) {
+			choices[i].classList.remove("chosen");
 			return i;
 		}
 	}
-	activeNext(false);
 }
 // choices
 
@@ -245,7 +244,7 @@ function submitAnswers() {
 	next.addEventListener("click", resetHundler);
 }
 function addNote(i, answer) {
-	let choices = ["A.", "B.", "C.", "D."];
+	let choices = ["A-", "B-", "C-", "D-"];
 
 	let wrongAnswer = document.createElement("div");
 	wrongAnswer.className = "wrong-answer";
