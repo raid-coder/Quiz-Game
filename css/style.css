@@ -92,6 +92,11 @@ body {
 	border-bottom: 3px solid black;
 	min-height: 400px;
 }
+@media (max-width: 767px) {
+	.quiz {
+		padding: 15px;
+	}
+}
 .quiz .question {
 	padding: 0 20px;
 	margin: 0 30px;
@@ -100,11 +105,24 @@ body {
 	font-weight: bold;
 	text-transform: capitalize;
 }
+@media (max-width: 767px) {
+	.quiz .question {
+		margin: 0;
+		padding: 0;
+		font-size: 25px;
+	}
+}
 .quiz .choices {
 	list-style: none;
 	font-size: 25px;
 	margin: 40px 50px 70px;
 	padding: 0;
+}
+@media (max-width: 767px) {
+	.quiz .choices {
+		margin: 20px 0 40px;
+		font-size: 22px;
+	}
 }
 .quiz .choices li {
 	padding: 10px 20px 10px 60px;
@@ -140,8 +158,9 @@ body {
 }
 .quiz .progress {
 	list-style: none;
+	width: calc(100% - 30px);
 	max-width: 400px;
-	margin: auto;
+	margin: 0 auto;
 	padding: 0;
 	display: flex;
 	justify-content: space-between;
