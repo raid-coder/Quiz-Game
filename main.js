@@ -220,6 +220,8 @@ function submitAnswers() {
 	// activate filter
 	filter.addEventListener("click", toggleFilter);
 
+	activeNext(true);
+
 	categoryHolder.textContent = "???";
 
 	let score = 0;
@@ -300,6 +302,8 @@ function resetTimer() {
 
 // Reset
 function initializeGame() {
+	activeNext(false);
+
 	curQuestion = 0;
 	initializeProgress();
 
