@@ -22,10 +22,19 @@ fetch("./quiz questions.json")
 	.then((data) => data.json())
 	.then((data) => {
 		questions = data;
+		startBtn.classList.remove("off");
+		getCategories();
+		setCategories();
+	})
+	.catch(() => {
+		let popup = document.createElement("span");
+		popup.className = "popup";
+		popup.textContent = "Failed To Load Questions !!!";
+		quizHolder.appendChild(popup);
 	});
 
 function getQuestions() {
-	let categories = getCategories();
+	let categories = getChosenCategories();
 
 	let groups = questions.filter((e) => categories.includes(e["category"]));
 
@@ -72,6 +81,7 @@ function updateQuestion() {
 // Filter
 let filter = document.querySelector(".filter");
 let filterMenu = document.querySelector(".filter-menu");
+let categories = [];
 
 filter.addEventListener("click", toggleFilter);
 
@@ -81,15 +91,39 @@ function toggleFilter(e) {
 	filterMenu.classList.toggle("active");
 }
 function getCategories() {
-	let categories = [];
+	for (const cat of questions) {
+		categories.push(cat["category"]);
+	}
+}
+function setCategories() {
+	for (let i = 0; i < categories.length; i++) {
+		let id = "op" + i;
+
+		let label = document.createElement("label");
+		label.className = "option";
+		label.htmlFor = id;
+
+		let input = document.createElement("input");
+		input.type = "checkbox";
+		input.id = id;
+		input.name = "filter";
+		input.checked = "true";
+
+		label.appendChild(input);
+		label.append(categories[i]);
+		filterMenu.appendChild(label);
+	}
+}
+function getChosenCategories() {
+	let chosenCategories = [];
 
 	for (const label of Array.from(filterMenu.children)) {
 		if (label.firstElementChild.checked) {
-			categories.push(label.textContent.trim());
+			chosenCategories.push(label.textContent.trim());
 		}
 	}
 
-	return categories;
+	return chosenCategories;
 }
 // Filter
 
@@ -274,6 +308,10 @@ function initializeGame() {
 	// stop Filter
 	filter.removeEventListener("click", toggleFilter);
 	filterMenu.classList.remove("active");
+
+	answers = [];
+	shuffeledQuestions = [];
+	notesHolder.innerHTML = "";
 
 	getQuestions();
 	loadQuestion();
