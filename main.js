@@ -194,9 +194,10 @@ next.addEventListener("click", nextHundler);
 
 function nextHundler() {
 	if (!next.classList.contains("active")) return;
-
 	answers.push(clearChoices());
-
+	nextQuestion();
+}
+function nextQuestion() {
 	if (curQuestion === 9) {
 		submitAnswers();
 	} else {
@@ -292,7 +293,7 @@ function resetTimer() {
 		if (timer.textContent === "0") {
 			answers.push(-1);
 			clearChoices();
-			nextHundler();
+			nextQuestion();
 		}
 	}, 1000);
 }
