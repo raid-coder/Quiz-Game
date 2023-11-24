@@ -43,6 +43,11 @@ body {
 	margin: 30px auto;
 	position: relative;
 }
+@media (max-width: 767px) {
+	.quiz-container {
+		width: 100%;
+	}
+}
 .quiz-header {
 	padding: 20px;
 	border-bottom: 3px solid black;
