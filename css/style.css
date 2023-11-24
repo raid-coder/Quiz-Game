@@ -37,7 +37,6 @@ body {
 }
 
 .quiz-container {
-	max-width: 1000px;
 	border: 3px solid black;
 	border-radius: 10px;
 	margin: 30px auto;
@@ -46,6 +45,11 @@ body {
 @media (max-width: 767px) {
 	.quiz-container {
 		width: 100%;
+	}
+}
+@media (min-width: 1000px) {
+	.quiz-container {
+		max-width: 1000px;
 	}
 }
 .quiz-header {
