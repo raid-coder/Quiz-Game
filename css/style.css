@@ -2,6 +2,10 @@ body {
 	font-family: "Roboto", sans-serif;
 }
 
+.title {
+	text-align: center;
+}
+
 .quiz .start-btn {
 	position: absolute;
 	left: 50%;
@@ -36,7 +40,8 @@ body {
 	max-width: 1000px;
 	border: 3px solid black;
 	border-radius: 10px;
-	margin: 30px auto 0;
+	margin: 30px auto;
+	position: relative;
 }
 .quiz-header {
 	padding: 20px;
@@ -207,6 +212,15 @@ body {
 .quiz .result .score {
 	font-size: 30px;
 	text-align: center;
+	font-weight: bold;
+}
+.quiz .result .score .remark {
+	font-size: 30px;
+	font-weight: normal;
+}
+.quiz .result .score .remark.perfect {
+	color: green;
+	font-weight: bold;
 }
 .quiz .result .notes .wrong-answer {
 	text-align: center;
@@ -267,6 +281,11 @@ body {
 
 .quiz.hide :where(.progress, .question, .choices) {
 	display: none;
+}
+
+.about {
+	text-align: center;
+	color: #777;
 }
 
 /* Animations */

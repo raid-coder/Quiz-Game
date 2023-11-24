@@ -211,6 +211,7 @@ let answers = [];
 let resultHolder = document.querySelector(".result");
 let scoreHolder = document.getElementById("score");
 let notesHolder = document.getElementById("notes");
+let remark = document.querySelector(".remark");
 
 function submitAnswers() {
 	// stop the timer
@@ -235,6 +236,14 @@ function submitAnswers() {
 		} else {
 			score++;
 		}
+	}
+
+	if (score === 10) {
+		remark.textContent = "Perfect Score !!!";
+		remark.classList.add("perfect");
+	} else {
+		remark.textContent = `${10 - score} Mistakes :`;
+		remark.classList.remove("perfect");
 	}
 
 	scoreHolder.textContent = score;
@@ -287,7 +296,7 @@ let timerId;
 
 function resetTimer() {
 	clearInterval(timerId);
-	timer.textContent = "10";
+	timer.textContent = "20";
 
 	timerId = setInterval(() => {
 		timer.textContent--;
